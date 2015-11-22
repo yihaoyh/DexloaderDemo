@@ -12,6 +12,13 @@ import java.lang.reflect.InvocationTargetException;
 import dalvik.system.DexClassLoader;
 import test.yihao.com.plugin.ShowText;
 
+
+/**
+ * 本demo参考
+ * http://www.alloyteam.com/2014/04/android-cha-jian-yuan-li-pou-xi/
+ *
+ * http://blog.csdn.net/quaful/article/details/6096951
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -25,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ClassLoader classLoader = getClassLoader();
+
+                /**
+                 * 此处写法参考 http://blog.csdn.net/yangjunjiezai/article/details/8668265
+                 */
                 DexClassLoader localDexClass = new DexClassLoader("mnt/sdcard/sample.apk", getDir("dex", 0).getAbsolutePath(), null, classLoader);
 
                 //load class
